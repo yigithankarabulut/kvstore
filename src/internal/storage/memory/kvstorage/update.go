@@ -5,6 +5,8 @@ func (ms *memoryStorage) Update(key string, value any) (any, error) {
 		return nil, err
 	}
 
-	res, _ := ms.Set(key, value)
-	return res, nil
+	ms.mu.Lock()
+	defer ms.mu.Unlock()
+	ms.db[key] = value
+	return ms.db[key], nil
 }

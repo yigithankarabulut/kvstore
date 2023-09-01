@@ -1,7 +1,8 @@
 package kvstorage
 
 import (
-	"fmt"
+	"fmt" //nolint:gci
+
 	"github.com/yigithankarabulut/kvstore/src/internal/kverror"
 )
 

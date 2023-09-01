@@ -2,9 +2,10 @@ package kvstorehandler
 
 import (
 	"context"
-	"errors"
-	"github.com/yigithankarabulut/kvstore/src/internal/kverror"
+	"errors" //nolint:gofumpt
 	"net/http"
+
+	"github.com/yigithankarabulut/kvstore/src/internal/kverror" //nolint:gci
 )
 
 func (h *kvstoreHandler) Get(w http.ResponseWriter, r *http.Request) {
@@ -98,5 +99,4 @@ func (h *kvstoreHandler) Get(w http.ResponseWriter, r *http.Request) {
 		http.StatusOK,
 		handlerResponse,
 	)
-
 }

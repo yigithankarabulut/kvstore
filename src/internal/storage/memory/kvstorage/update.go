@@ -5,5 +5,6 @@ func (ms *memoryStorage) Update(key string, value any) (any, error) {
 		return nil, err
 	}
 
-	return ms.Set(key, value), nil
+	res, _ := ms.Set(key, value)
+	return res, nil
 }

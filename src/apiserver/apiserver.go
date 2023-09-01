@@ -145,7 +145,7 @@ func New(options ...Option) error {
 	mux.HandleFunc(apiV1Prefix+"/list/", kvStoreHandler.List)
 
 	api := &http.Server{
-		Addr:         ":8000",
+		Addr:         ":8080",
 		Handler:      appendSlashMiddleware(httpLoggingMiddleware(logger, mux)),
 		ReadTimeout:  ServerReadTimeout,
 		WriteTimeout: ServerWriteTimeout,

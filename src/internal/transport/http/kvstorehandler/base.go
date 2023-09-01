@@ -1,11 +1,12 @@
 package kvstorehandler
 
 import (
-	"github.com/yigithankarabulut/kvstore/src/internal/service/kvstoreservice"
-	"github.com/yigithankarabulut/kvstore/src/internal/transport/http/basehttphandler"
-	"log/slog"
+	"log/slog" //nolint:gofumpt
 	"net/http"
 	"time"
+
+	"github.com/yigithankarabulut/kvstore/src/internal/service/kvstoreservice"
+	"github.com/yigithankarabulut/kvstore/src/internal/transport/http/basehttphandler"
 )
 
 var _ KVStoreHTTPHandler = (*kvstoreHandler)(nil) // compile time proof

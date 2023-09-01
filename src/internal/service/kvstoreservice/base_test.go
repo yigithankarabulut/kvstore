@@ -1,4 +1,4 @@
-package kvstoreservice_test
+package kvstoreservice_test //nolint:typecheck
 
 import (
 	"errors"

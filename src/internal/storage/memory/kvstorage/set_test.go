@@ -6,6 +6,8 @@ import (
 	"github.com/yigithankarabulut/kvstore/src/internal/storage/memory/kvstorage"
 )
 
+// db de bulunan keyin aynı adıyla yeni post edilince set fonksiyonundaki ilk getten error dönücek testi yaz TODO: testi yaz
+
 func TestSet(t *testing.T) {
 	key := "key"
 	memoryStorage := kvstorage.MemoryDB(map[string]any{})

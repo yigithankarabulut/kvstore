@@ -124,6 +124,13 @@ func (h *kvstoreHandler) Set(w http.ResponseWriter, r *http.Request) {
 
 	serviceResponse, err := h.service.Set(ctx, &serviceRequest)
 	if err != nil {
+		if errors.Is(err, context.DeadlineExceeded) {
+			h.JSON(
+				w,
+				http.StatusGatewayTimeout,
+				map[string]string{"error": err.Error()},
+			)
+		}
 		var kvErr *kverror.Error
 
 		if errors.As(err, &kvErr) {

@@ -2,7 +2,6 @@ package basehttphandler
 
 import (
 	"encoding/json"
-	"errors"
 	"log/slog"
 	"net/http"
 	"time"
@@ -13,19 +12,6 @@ type Handler struct {
 	ServerEnv     string
 	Logger        *slog.Logger
 	CancelTimeout time.Duration
-}
-
-// ContentTypeControl If contentType is not application/json, return error.
-func (h *Handler) ContentTypeControl(w http.ResponseWriter) error {
-	if w.Header().Get("Content-Type") != "application/json" {
-		h.JSON(
-			w,
-			http.StatusBadRequest,
-			map[string]string{"error": "Content-Type header is not application/json"},
-		)
-		return errors.New("Content-Type header is not application/json")
-	}
-	return nil
 }
 
 // JSON writes json response.

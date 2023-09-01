@@ -13,7 +13,7 @@ import (
 	"time"
 
 	"github.com/yigithankarabulut/kvstore/src/internal/service/kvstoreservice"
-	"github.com/yigithankarabulut/kvstore/src/internal/storage/memory/kvstorage"
+	"github.com/yigithankarabulut/kvstore/src/internal/storage/memory/kvstorage" //nolint:typecheck
 	"github.com/yigithankarabulut/kvstore/src/internal/transport/http/kvstorehandler"
 	"github.com/yigithankarabulut/kvstore/src/releaseinfo"
 )

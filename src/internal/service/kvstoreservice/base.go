@@ -3,7 +3,7 @@ package kvstoreservice
 import (
 	"context"
 
-	"github.com/yigithankarabulut/kvstore/src/internal/storage/memory/kvstorage"
+	"github.com/yigithankarabulut/kvstore/src/internal/storage/memory/kvstorage" //nolint:typecheck
 )
 
 var _ KVStoreService = (*kvStoreService)(nil) // compile time proof

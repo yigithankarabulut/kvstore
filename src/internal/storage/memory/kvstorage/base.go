@@ -1,4 +1,4 @@
-package kvstorage
+package kvstorage //nolint:typecheck
 
 import (
 	"sync"
@@ -43,5 +43,3 @@ func New(options ...StorageOption) Storer {
 
 	return ms
 }
-
-//usr/local/go/bin:$PATH

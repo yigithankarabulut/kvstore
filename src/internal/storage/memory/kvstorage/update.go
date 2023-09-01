@@ -6,7 +6,6 @@ func (ms *memoryStorage) Update(key string, value any) (any, error) {
 	}
 
 	//fmt.Fprintf(io.Discard, "%v", value)
-
-	return nil, nil
+	//return nil, nil
 	return ms.Set(key, value), nil
 }

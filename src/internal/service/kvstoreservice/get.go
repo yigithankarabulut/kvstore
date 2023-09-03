@@ -8,7 +8,7 @@ import (
 func (s *kvStoreService) Get(ctx context.Context, key string) (*ItemResponse, error) {
 	select {
 	case <-ctx.Done():
-		return nil, ctx.Err()
+		return nil, ctx.Err() //nolint:wrapcheck
 	default:
 		value, err := s.storage.Get(key)
 		if err != nil {

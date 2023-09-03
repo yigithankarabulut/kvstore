@@ -8,7 +8,7 @@ import (
 func (s *kvStoreService) Update(ctx context.Context, sr *UpdateRequest) (*ItemResponse, error) {
 	select {
 	case <-ctx.Done():
-		return nil, ctx.Err()
+		return nil, ctx.Err() //nolint:wrapcheck
 	default:
 		value, err := s.storage.Update(sr.Key, sr.Value)
 		if err != nil {

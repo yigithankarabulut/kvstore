@@ -60,7 +60,7 @@ func TestGetQueryParamKeyNotFound(t *testing.T) {
 
 	shouldContain := "key not present"
 	if !strings.Contains(w.Body.String(), shouldContain) {
-		t.Errorf("wrong body message, want: %s, got: %s", shouldContain, w.Body.String()) // TODO: fix crash here.
+		t.Errorf("wrong body message, want: %s, got: %s", shouldContain, w.Body.String())
 	}
 }
 

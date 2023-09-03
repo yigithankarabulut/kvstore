@@ -13,16 +13,15 @@ func (h *kvstoreHandler) Get(w http.ResponseWriter, r *http.Request) {
 		h.JSON(
 			w,
 			http.StatusMethodNotAllowed,
-			map[string]string{"error": "method" + r.Method + " not allowed"},
+			map[string]string{"error": "method " + r.Method + " not allowed"},
 		)
 		return
 	}
-	w.Header()
 	// verify query params
 	if len(r.URL.Query()) == 0 {
 		h.JSON(
 			w,
-			http.StatusBadRequest,
+			http.StatusNotFound,
 			map[string]string{"error": "key query param required"},
 		)
 		return
@@ -34,14 +33,14 @@ func (h *kvstoreHandler) Get(w http.ResponseWriter, r *http.Request) {
 	if !ok {
 		h.JSON(
 			w,
-			http.StatusBadRequest,
-			map[string]string{"error": "query parameter is required"}, //
+			http.StatusNotFound,
+			map[string]string{"error": "key not present"},
 		)
 		return
 	} else if len(keys) > 1 {
 		h.JSON(
 			w,
-			http.StatusBadRequest,
+			http.StatusNotFound,
 			map[string]string{"error": "only one key query parameter is required"}, //
 		)
 		return

@@ -6,7 +6,16 @@ import (
 	"github.com/yigithankarabulut/kvstore/src/internal/storage/memory/kvstorage"
 )
 
-// db de bulunan keyin aynı adıyla yeni post edilince set fonksiyonundaki ilk getten error dönücek testi yaz TODO: testi yaz
+func TestSetEqualData(t *testing.T) {
+	key := "key"
+	memoryStorage := kvstorage.MemoryDB(map[string]any{})
+	storage := kvstorage.New(kvstorage.WithMemoryDB(memoryStorage))
+	_, _ = storage.Set(key, "value")
+
+	if _, err := storage.Set(key, "value"); err == nil {
+		t.Error("updated although key exists")
+	}
+}
 
 func TestSet(t *testing.T) {
 	key := "key"

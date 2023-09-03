@@ -7,7 +7,7 @@ import (
 func (s *kvStoreService) List(ctx context.Context) (*ListResponse, error) {
 	select {
 	case <-ctx.Done():
-		return nil, ctx.Err()
+		return nil, ctx.Err() //nolint:wrapcheck
 	default:
 		items := s.storage.List()
 		response := make(ListResponse, len(items))

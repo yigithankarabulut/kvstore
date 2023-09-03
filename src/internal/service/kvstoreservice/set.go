@@ -10,7 +10,6 @@ func (s *kvStoreService) Set(ctx context.Context, sr *SetRequest) (*ItemResponse
 	case <-ctx.Done():
 		return nil, ctx.Err()
 	default:
-		//value, err :=  // if in içine çek maybe
 		if _, err := s.storage.Set(sr.Key, sr.Value); err != nil {
 			return nil, fmt.Errorf("kvstoreservice.Set storage.Set err: %w", err)
 		}

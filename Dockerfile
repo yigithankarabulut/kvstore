@@ -1,7 +1,7 @@
 # build application
 FROM golang:1.21.0-alpine AS builder
 
-ENV GOPRIVATE=github.com/vbyazilim
+ENV GOPRIVATE=github.com/yigithankarabulut
 
 ARG GITHUB_ACCESS_TOKEN
 ARG BUILD_INFORMATION
@@ -29,5 +29,5 @@ FROM busybox:1.36
 COPY --from=certs /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 COPY --from=builder /build/app /kvstoreapp
 
-EXPOSE 8000
+EXPOSE 8080
 CMD ["/kvstoreapp"]
